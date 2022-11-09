@@ -14,6 +14,18 @@ Optional arguments of the new commands are ignored as new `siunitx` has either r
 This may change the formatting of the numbers. Don't use this code in this case.
 If you have time to help and improve the code feel free to create a Pull-Request. 
 
+## Usage
+Simply copy the script into your documents root directory and input the it into your main `*.tex` file after the `\usepackage{siunitx}` but before `\begin{document}`.
+```tex
+\documentclass{article}
+\usepackage{siunitx}
+
+\input{legacy-siunitx-converter}
+
+\begin{document}
+...
+```
+
 ## How it works
 The script differs between two cases. If you need to add more commands, you can find examples here.
 Note that the code uses the `\qty` command (exists only in > v3) to determine if its running with an old or new version of siunitx.
