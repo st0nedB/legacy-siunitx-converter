@@ -1,0 +1,17 @@
+% determine if we have to do something 
+\ifx\qty\undefined
+    % Case 1: Commands that exists in both versions
+    % redefine ignoring any optional arguments
+    \let\oldnum\num
+    \renewcommand{\num}[2][ignored]{\oldnum{#2}}
+
+    % Case 2: Commands that only exist in >v3
+    % create new commands, ignore optional arguments
+    \ifx\qty\undefined
+        \newcommand{\qty}[3][ignored]{\SI{#2}{#3}}
+    \fi
+
+    \ifx\qtyrange\undefined
+        \newcommand{\qtyrange}[4][ignored]{\SIrange{#2}{#3}{#4}}
+    \fi
+\fi
